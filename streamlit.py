@@ -145,7 +145,7 @@ def main():
                         image_resized = cv2.resize(image_cv, (400, 400), interpolation=cv2.INTER_CUBIC) # Upscale
 
                     cv2.imwrite(f"temp-{uploaded_file.name.split('.')[:-1]}.png", image_resized)
-                    gray_image = read_image(f"temp-{uploaded_file.name.split('.')[:-1]}.png", ImageReadMode.GRAY).to(device) / 2.5
+                    gray_image = read_image(f"temp-{uploaded_file.name.split('.')[:-1]}.png", ImageReadMode.GRAY).to(device) / 2.55
                     os.remove(f"temp-{uploaded_file.name.split('.')[:-1]}.png")
                     colorized_array = colorize_image(gray_image, model, device)
                     col_img = Image.fromarray(colorized_array)
